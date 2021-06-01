@@ -27,18 +27,23 @@ body {
   flex : auto;
   margin : 0 auto;
   padding : 0;
+  width : 30%;
 }
-.nav-items {
+.navbar a {
   width : 25%;
-  list-style-type: none;
-  margin : auto;
   text-align : center;
   vertical-align : middle;
-  font-size : 1.25rem;
+  padding : 1rem 0.5rem;
 }
-.nav-items:hover {
+.nav-items {
+  list-style-type: none;
+  margin : auto;
+  font-size : 1.25rem;
+  color : white;
+}
+.navbar a:hover {
   opacity : 0.8;
-  padding : rgba(200, 200, 255, 0.5);
+  background : rgba(200, 200, 255, 0.5);
   cursor: pointer;
 }
 
@@ -64,8 +69,8 @@ body {
 }
 .listed-item img {
   width : 80px;
-  height : 80px;
-  padding : auto;
+  height : 120px;
+  padding : 0;
   background : burlywood;
 }
 .item-info {
@@ -79,4 +84,40 @@ body {
 .item-info p {
   margin : 0 auto;
   padding : 0;
+}
+.order-buttons {
+  display : flex;
+  flex : auto;
+  width : 50%;
+  margin : 0 auto;
+  padding : 0.25rem 0.5rem;
+  background : rgba(255, 255, 250, 0.5);
+  border-radius : 1rem;
+}
+.less, .more {
+  width : 1.5rem;
+  height : 1.5rem;
+  background : greenyellow;
+  margin : 0 auto;
+  border : none;
+  border-radius : 0.75rem;
+  text-align : center;
+}
+
+.ordered {
+  position :fixed;
+  right: 1rem;
+  bottom : 1rem;
+  margin : 4rem;
+}
+.buy-these {
+  font-size: 1.5rem;
+  background : white;
+  border: none;
+  border-radius : 1.25rem;
+  padding : 0.5rem;
+}
+.buy-these:hover {
+  opacity : 0.8;
+  cursor : pointer;
 }
