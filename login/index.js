@@ -1,3 +1,6 @@
+
+//--------------------------------------------------------------------
+
 const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 
@@ -28,5 +31,3 @@ loginBtn.addEventListener(onclick, (event) => {
     
   }
 })
-
-//After this is code for the web functionality

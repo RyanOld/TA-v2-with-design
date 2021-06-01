@@ -103,6 +103,10 @@ body {
   border-radius : 0.75rem;
   text-align : center;
 }
+.less:hover, .more:hover {
+  opacity : 0.8;
+  cursor : pointer;
+}
 
 .ordered {
   position :fixed;
