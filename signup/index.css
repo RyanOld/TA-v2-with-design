@@ -9,7 +9,7 @@ body {
 .signup {
   margin : 0.5rem auto;
   text-align: center;
-  font-size : 4rem;
+  font-size : 3rem;
 }
 
 .signup-form {
@@ -19,13 +19,13 @@ body {
   padding : 1.5rem;
 }
 .signup-form label {
-  font-size : 1.5rem;
+  font-size : 1.25rem;
   color : rgba(217, 217, 217, 1);
   font-weight: 600;
 }
 .signup-form input {
-  font-size : 1.5rem;
-  padding : 0.5rem;
+  font-size : 1.25rem;
+  padding : 0.25rem;
   background : none;
   border : none;
   border-bottom : solid 0.3rem rgba(217, 217, 217, 1);
@@ -44,9 +44,14 @@ body {
   margin-right : 3%;
 }
 
-.next-btn {
-  font-size : 2rem;
-  margin : 1rem 37%;
+.btn-container {
+  display : flex;
+  flex : auto;
+  width : 92%;
+}
+.btn-container button {
+  font-size : 1.5rem;
+  margin : 1rem auto;
   border : none;
   border-radius : 2rem;
   min-width : 120px;
@@ -54,7 +59,7 @@ body {
   text-align : center;
   background : rgba(174, 185, 193, 1)
 }
-.next-btn:hover {
+.btn-container button:hover {
   opacity : 0.8;
   cursor:pointer;
 }

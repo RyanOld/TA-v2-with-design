@@ -18,15 +18,16 @@ mysqli_close($con);
 ?>
 -->
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$dbhost = "localhost";
+$dbusername = "root";
+$dbpassword = "";
+$dbname = "ulshop2"
 
-$uname = $_POST['username'];
-$pass = $_POST['password'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($dbhost, $dbusername, $dbpassword);
 
 // Check connection
 if ($conn->connect_error) {
@@ -34,7 +35,6 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-mysqli_select_db($conn,"olshop");
 #$sql = "CREATE TABLE MyGuests (
 #id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 #firstname VARCHAR(30) NOT NULL,

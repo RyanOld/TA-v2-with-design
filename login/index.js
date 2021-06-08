@@ -1,33 +1,70 @@
 
 //--------------------------------------------------------------------
 
-const usernameInput = document.querySelector("#username");
+const identifierInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 
 const loginBtn = document.querySelector(".login-btn");
 
+localStorage['jwt'] = '';
+localStorage['currentuser'] = {};
+
+let identifier = "";
+let password = "";
+
+let credential = {};
+let options = {};
 setInterval(() => {
-  username = usernameInput.innerHTML;
-  password = passwordInput.innerHTML;
+  identifier = identifierInput.value;
+  password = passwordInput.value;
+  credential = {
+  "identifier" : identifier,
+  "password" : password,
+  };
+  options = {
+  method: 'POST',
+  headers: {
+  'Content-Type': 'application/json',
+  'Connection' : 'keep-alive',
+  /*
+  'Authorization': 'Bearer aqsdqwwqeqwe(jwt)',
+  */
+  },
+  body: JSON.stringify(credential),
+};
 //  console.log(username);
 //  console.log(password);
 }, 100);
 
+/*
 let xhr = new XMLHttpRequest();
-loginBtn.addEventListener(onclick, (event) => {
+*/
+let jwt = "";
+var jwtToken = localStorage['jwt'];
+
+loginBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log(event);
-  if(username != "" && password != "") {
-    xhr = new XMLHttpRequest();
-//    xhr.onreadystatechange = function() {
-//      if (this.readyState == 4 && this.status == 200) {
-//      document.getElementById("demo").innerHTML = this.responseText;
-//        console.log(this.responseText);
-//      }
-//    };
-    xhr.open("POST", "../home/index.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("username=" + username + "&password=" + password);
-    
-  }
+
+  
+
+  fetch('http://localhost:1337/auth/local', options)
+    .then(data => {
+        if (!data.ok) {
+          throw Error(data.status);
+        }
+        return data.json();
+        }).then(credential => {
+        console.log(credential);
+//        alert("success");
+        jwt = credential["jwt"];
+//        console.log(jwt); //no problem here
+        localStorage['jwt'] = jwt; // only strings
+        jwtToken = localStorage['jwt'] || '';
+//        console.log(jwtToken); //no problem here
+        window.location.replace("../home");
+        return false; 
+        }).catch(e => {
+        console.log(e);
+        alert("Username/Email atau Password salah! Klik Sign Up jika Anda belum memiliki akun.")
+        });
 })

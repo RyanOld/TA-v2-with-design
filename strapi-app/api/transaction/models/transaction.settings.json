@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "name": "transaction"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "totalprice": {
+      "type": "decimal",
+      "required": true
+    },
+    "shippingaddress": {
+      "type": "string",
+      "required": true
+    },
+    "paymentmethod": {
+      "type": "enumeration",
+      "enum": [
+        "trfbni",
+        "trfbri",
+        "trfbca",
+        "trfmandiri",
+        "vabni",
+        "vabca",
+        "vabri",
+        "vamandiri",
+        "mbbni",
+        "mbbri",
+        "mbbca",
+        "mbmandiri",
+        "cod",
+        "visa",
+        "mastercard"
+      ],
+      "required": true
+    },
+    "courier": {
+      "type": "enumeration",
+      "enum": [
+        "sicepat",
+        "jneregular",
+        "jneoke",
+        "jneexpress",
+        "wahana",
+        "gojek",
+        "grab"
+      ],
+      "required": true
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

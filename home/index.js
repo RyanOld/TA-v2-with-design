@@ -1,9 +1,39 @@
-//After this is code for the web functionality
 //less/minus buttons(-)
 
-let minBtnArr = document.querySelectorAll(".less");
-let moreBtnArr = document.querySelectorAll(".more");
+const minBtnArr = document.querySelectorAll(".less");
+const moreBtnArr = document.querySelectorAll(".more");
 
+const greetings = document.querySelector('#account-name');
+//fetching data from other page/database : user info if logged in.
+//getting data on the current user logged in
+let auth = 'Bearer ' + localStorage['jwt'];
+let currentUser = {};
+fetch('http://localhost:1337/users/me', {
+    method: 'GET',
+    headers: {
+      /*
+      'Content-Type': 'application/json',
+      'Connection' : 'keep-alive',
+      */
+      'Authorization': auth,
+      }
+    })
+    .then(data => {
+        if (!data.ok) {
+          throw Error(data.status);
+        }
+        return data.json();
+        }).then(credential => {
+//        console.log(credential);
+        currentUser = credential;
+        localStorage['currentuser'] = currentUser;
+        greetings.innerHTML = "Halo, " + currentUser.firstname;
+        }).catch(e => {
+        console.log(e);
+        });
+
+
+//Page Functionality
 const itemDetail = function(id, quant, price) {
   this.id = id;
   this.quantity = quant;
@@ -28,13 +58,17 @@ moreBtnArr.forEach(element => {
 //    console.log("more2");
   })
 });
-/*
-setInterval(() => {
-  document.querySelectorAll(".count").forEach(element => {
-    if(element.innerHTML != 0) {
-    a = element.parentElement.parentElement.querySelector(".price").innerHTML;
-    customerOrders[customerOrders.length] = new itemDetail(customerOrder.length, element, a);
-    }
-  });
-}, 100);
-*/
+
+const logoutButton = document.querySelector("#logout-btn");
+logoutButton.addEventListener("click", () => {
+  localStorage['currentuser'] = '';
+  localStorage['jwt'] = '';
+  window.location.replace("../home");
+})
+
+//change display
+loggedInBtns = document.querySelector('.logged-in');
+loggedOutBtns = document.querySelector('.logged-out');
+if(localStorage['currentuser'] == '') {
+
+}
