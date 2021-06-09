@@ -3,17 +3,19 @@
 
 <head>
   <meta charset="utf-8">
-  <title>D'Vica Store Homepage</title>
-  <link rel="stylesheet" href="index.css">
+  <title>Home | D'Vica Store</title>
+  <link rel="stylesheet" href="./index.css">
   <meta name="viewport" content="width= device-width, initial-scale= 1">
-  <meta name="description" content="Bagian Utama Online Store">
-  <script defer src="index.js"></script>
+  <meta name="description" content="Bagian Utama D'Vica Online Store">
+  <script defer src="./index.js"></script>
 </head>
 
 <body>
  <header class="title-bar">
    <section class="image">
-    <img src="../assets/ele/dvica ed.png" alt="">
+    <a href="./">
+      <img src="../assets/ele/dvica ed.png" alt="">
+    </a>
    </section>
     <ul class="navbar">
 <!--      <a href="../"><li class="nav-items">Home</li></a> -->
@@ -22,7 +24,7 @@
         <a href="../signup"><li class="nav-items">Signup</li></a>
       </section>
       <section class="logged-in">
-        <a href=""><li class="nav-items" id="account-name">
+        <a href="../profile"><li class="nav-items" id="account-name">
           Your Account
         </li></a>
         <a href=""><li class="nav-items" id="logout-btn">Logout</li></a>
@@ -31,8 +33,9 @@
  </header>
  <section class="main-content">
    <ul class="listed-items-container">
-     <li class="listed-item">
-       <img src="../assets/ele/selamat datang ed.png" alt="">
+     
+     <li class="listed-item" id = "seed">
+       <img src="../assets/ele/permen2.jpg" alt="">
        <div class="item-info">
           <h3 class = "item-name"   >Nama Produk</h3>
           <p class = "desc"         >Deskripsi</p>
@@ -45,6 +48,8 @@
           </div>
        </div>
      </li>
+    
+     <!--
      <li class="listed-item">
       <img src="../assets/ele/selamat datang ed.png" alt="">
       <div class="item-info">
@@ -100,6 +105,7 @@
         </div>
       </div>
      </li>
+    -->
    </ul>
  </section>
  <section class="ordered">

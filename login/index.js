@@ -5,6 +5,12 @@ const identifierInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 
 const loginBtn = document.querySelector(".login-btn");
+const signupBtn = document.querySelector('.signup-btn');
+
+signupBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  window.location.replace("../signup");
+})
 
 localStorage['jwt'] = '';
 localStorage['currentuser'] = {};

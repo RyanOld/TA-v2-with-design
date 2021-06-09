@@ -7,6 +7,12 @@ const firstnameInput = document.querySelector('#first-name');
 const lastnameInput = document.querySelector('#last-name');
 
 const signupBtn = document.querySelector(".signup-btn");
+const loginBtn = document.querySelector('.login-btn');
+
+loginBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  window.location.replace("../login");
+})
 
 localStorage['jwt'] = '';
 localStorage['currentuser'] = {};

@@ -26,7 +26,7 @@ body {
   margin : 0 auto;
   cursor : auto;
 }
-.login-btn, .signup-btn {
+.login-btn, .signup-btn, .guest-btn {
   font-size : 1.5rem;
   margin : 0 auto;
   border : none;
@@ -34,7 +34,19 @@ body {
   min-width : 120px;
   padding : 0.5rem 1rem;
 }
-.login-btn:hover, .signup-btn:hover {
+.login-btn:hover, .signup-btn:hover, .guest-btn:hover {
   opacity : 0.8;
   cursor:pointer;
+}
+.guest {
+  display : flex;
+  flex : auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin : 0 auto;
+  margin-top : 1rem;
+  text-align : center;
+}
+.guest-btn {
+  cursor : auto;
 }

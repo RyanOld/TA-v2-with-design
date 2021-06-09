@@ -1,2 +1,0 @@
-localStorage['jwt'] = '';
-localStorage['currentuser'] = '';
