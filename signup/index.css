@@ -8,6 +8,7 @@ body {
 
 .signup {
   margin : 0.5rem auto;
+  margin-top : 0.2rem;
   text-align: center;
   font-size : 3rem;
 }
@@ -16,7 +17,7 @@ body {
   background :rgba(87, 108, 126, 0.8);
   width : 50%;
   margin : 0 auto;
-  padding : 1.5rem;
+  padding : 1rem 1.5rem;
 }
 .signup-form label {
   font-size : 1.25rem;
@@ -45,9 +46,12 @@ body {
 }
 
 .btn-container {
-  display : flex;
+/*  display : flex;
   flex : auto;
+*/
   width : 92%;
+  margin : 0 auto;
+  text-align: center;
 }
 .btn-container button {
   font-size : 1.5rem;
@@ -57,9 +61,18 @@ body {
   min-width : 120px;
   padding : 0.5rem 2rem;
   text-align : center;
-  background : rgba(174, 185, 193, 1)
+  background : rgba(174, 185, 193, 1);
+  margin-bottom : 0.2rem;
 }
 .btn-container button:hover {
   opacity : 0.8;
   cursor:pointer;
+}
+.btn-container p {
+  font-size : 0.8rem;
+  color : white;
+  margin : 0 auto;
+}
+.btn-container a {
+  color : white;
 }

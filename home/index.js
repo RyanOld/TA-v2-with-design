@@ -1,13 +1,14 @@
 //less/minus buttons(-)
 
-const minBtnArr = document.querySelectorAll(".less");
-const moreBtnArr = document.querySelectorAll(".more");
+let minBtnArr = document.querySelectorAll(".less");
+let moreBtnArr = document.querySelectorAll(".more");
 
 const greetings = document.querySelector('#account-name');
 //fetching data from other page/database : user info if logged in.
 //getting data on the current user logged in
 let auth = 'Bearer ' + localStorage['jwt'];
 let currentUser = {};
+//fetching currently logged-in user
 fetch('http://localhost:1337/users/me', {
     method: 'GET',
     headers: {
@@ -43,7 +44,7 @@ const itemDetail = function(id, quant, price) {
 
 let customerOrders = [];
                     //[new ItemDetail(1, 2, 2000), new ItemDetail(2, 3, 5000)]
-
+/*
 minBtnArr.forEach(element => {
   element.addEventListener("click", () => {
     a = element.parentElement.querySelector(".count");
@@ -58,12 +59,12 @@ moreBtnArr.forEach(element => {
 //    console.log("more2");
   })
 });
-
+*/
 const logoutButton = document.querySelector("#logout-btn");
 logoutButton.addEventListener("click", () => {
   localStorage['currentuser'] = '';
   localStorage['jwt'] = '';
-  window.location.replace("../home");
+  window.location.href = "../home";
 })
 
 //change display
@@ -101,19 +102,58 @@ fetch('http://localhost:1337/products', {
         console.log(productsdata);
 
         productsData = productsdata;
-
+        //fetching all available products.
         let productNode = root.querySelector('#seed').cloneNode(true);
 
         let docFrag = document.createDocumentFragment();
         for(let index = 0; index < productsData.length; index++) {
+          productNode = root.querySelector('#seed').cloneNode(true);
+ /*
+          productNode = document.createElement('li');
+          productNode.append(document.createElement('img'));
+          productNode.append(document.createElement('div'));
+          productNode.querySelector('div').append(document.createElement('h3'));
+          productNode.querySelector('div').append(document.createElement('p'));
+          productNode.querySelector('div').append(document.createElement('p'));
+          productNode.querySelector('div').append(document.createElement('p'));
+          productNode.querySelector('div').append(document.createElement('div'));
+          productNode.querySelector('div').querySelector('div').append(document.createElement('button'));
+          productNode.querySelector('div').querySelector('div').append(document.createElement('p'));
+          productNode.querySelector('div').querySelector('div').append(document.createElement('button'));
+
+          document.querySelector('.listed-items-container').append(productNode);
+*/
+          productNode.querySelector('img').src = "http://localhost:1337" + productsdata[index].picture.formats.thumbnail.url;
+          console.log(productNode.src);
           productNode.querySelector('.item-name').innerHTML = productsData[index].name;
           productNode.querySelector('.stock').innerHTML = "Stok : " + productsData[index].stock;
           productNode.querySelector('.price').innerHTML = "Harga : Rp." + productsData[index].price;
           productNode.id = index;
           docFrag.append(productNode);
-          index++;
+          console.log(docFrag)
+          console.log(index);
         }
-        root.appendChild(docFrag);
+        document.querySelector('#seed').remove();
+        root.append(docFrag);
+
+        //order item functionality : order count
+        minBtnArr = document.querySelectorAll(".less");
+        moreBtnArr = document.querySelectorAll(".more");
+
+        minBtnArr.forEach(element => {
+          element.addEventListener("click", () => {
+            a = element.parentElement.querySelector(".count");
+            a.innerHTML = parseInt(a.innerHTML) - 1;
+        //    console.log("less2");
+          })
+        });
+        moreBtnArr.forEach(element => {
+          element.addEventListener("click", () => {
+            b = element.parentElement.querySelector(".count");
+            b.innerHTML = parseInt(b.innerHTML) + 1;
+        //    console.log("more2");
+          })
+        });
 
         }).catch(e => {
         console.log(e);

@@ -41,10 +41,14 @@ body {
 }
 
 .btn-container {
-  display : flex;
+/*  display : flex;
   flex : auto;
+  flex-direction: row;
+*/
+  margin : 0 auto;
   width : 92%;
   margin-top : 2rem;
+  text-align: center;
 }
 .btn-container button {
   font-size : 2rem;
@@ -59,4 +63,12 @@ body {
 .btn-container button:hover {
   opacity : 0.8;
   cursor:pointer;
+}
+.btn-container p {
+  margin : 0 auto;
+  font-size : 0.8rem;
+  color : white;
+}
+.btn-container a {
+  color : white;
 }

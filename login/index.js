@@ -6,12 +6,12 @@ const passwordInput = document.querySelector("#password");
 
 const loginBtn = document.querySelector(".login-btn");
 const signupBtn = document.querySelector('.signup-btn');
-
+/*
 signupBtn.addEventListener("click", (event) => {
   event.preventDefault();
   window.location.replace("../signup");
 })
-
+*/
 localStorage['jwt'] = '';
 localStorage['currentuser'] = {};
 
@@ -67,7 +67,7 @@ loginBtn.addEventListener("click", (event) => {
         localStorage['jwt'] = jwt; // only strings
         jwtToken = localStorage['jwt'] || '';
 //        console.log(jwtToken); //no problem here
-        window.location.replace("../home");
+        window.location.href = "../home";
         return false; 
         }).catch(e => {
         console.log(e);
