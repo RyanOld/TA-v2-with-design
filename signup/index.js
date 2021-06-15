@@ -8,12 +8,12 @@ const lastnameInput = document.querySelector('#last-name');
 
 const signupBtn = document.querySelector(".signup-btn");
 const loginBtn = document.querySelector('.login-btn');
-
+/*
 loginBtn.addEventListener("click", (event) => {
   event.preventDefault();
   window.location.replace("../login");
 })
-
+*/
 localStorage['jwt'] = '';
 localStorage['currentuser'] = {};
 
@@ -56,12 +56,13 @@ signupBtn.addEventListener("click", (event) => {
         localStorage['jwt'] = jwt; // only strings
         jwtToken = localStorage['jwt'] || '';
 //        console.log(jwtToken); //no problem here
-        window.location.replace("../login");
+        window.location.href = "../login";
         return false; 
         }).catch(e => {
         console.log(e);
+        alert("Mohon isi semua kotak formulir dengan benar.");
         });
   } else {
-    alert("Konfirmasi password tidak sama dengan password");
+    alert("Konfirmasi password tidak sama dengan password!");
   }
 })
